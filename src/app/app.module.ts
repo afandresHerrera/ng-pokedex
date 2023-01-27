@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from "ngx-toastr";
 
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './router/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

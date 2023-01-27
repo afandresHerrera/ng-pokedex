@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { Spinkit, SpinnerVisibilityService } from 'ng-http-loader';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <router-outlet></router-outlet>
+    <!-- Spinner  -->
+    <ng-http-loader [backgroundColor]="'#ff6688'" [spinner]="spinkit.skRotatingPlane"></ng-http-loader>`
 })
 export class AppComponent {
-  title = 'ng-pokedex';
+  public spinkit = Spinkit;
+  constructor(public spinner: SpinnerVisibilityService) { }
+
 }
