@@ -1,3 +1,7 @@
 .example-item {
   height: 150px;
 }
+
+.row.item-sized > div {
+  height: 150px;
+}
