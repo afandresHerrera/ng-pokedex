@@ -1,1 +1,19 @@
-<p>search-bar works!</p>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <div class="row w-100">
+            <div class="d-none d-md-block col-md-6">
+                <div class="logo py-2">
+                    <img src="assets/images/pk-logo.svg" alt="pokemon logo">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <div class="search-box ms-auto">
+                    <img class="search-icon" src="assets/images/magnifier.svg" alt="search-button"
+                        (click)="emitSearch(search.value)">
+                    <input class="search-form form-control me-2" type="search" placeholder="Search"
+                        (keyup.enter)="emitSearch(search.value)" #search aria-label="Search">
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

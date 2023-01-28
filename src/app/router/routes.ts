@@ -6,8 +6,8 @@ export const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: '', pathMatch: 'full' },
-            { path: '', loadChildren: () => import('../modules/poke-dex/poke-dex.module').then(m => m.PokeDexModule) }
+            { path: '', loadChildren: () => import('../modules/poke-dex/poke-dex.module').then(m => m.PokeDexModule) },
+            { path: '', redirectTo: '', pathMatch: 'full' }
         ]
     },
 

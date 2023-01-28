@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { PokemonListResponse } from '../models/pokemon-models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,7 @@ export class PokeApiService {
     private http: HttpClient
   ) { }
 
-  getAllPokemons() {
-    const limit = 1500;
-
-    return this.http.get(`${environment.apiUrl}pokemon/?limit=${limit}`);
+  getAllPokemons(limit = 1500) {
+    return this.http.get<PokemonListResponse>(`${environment.apiUrl}pokemon/?limit=${limit}`);
   }
 }

@@ -1,0 +1,47 @@
+html {
+  box-sizing: border-box;
+}
+
+html * {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px; /* para no afectar bootstrap */
+  height: 100%;
+  margin: 0;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+body a,
+body label,
+body p {
+  font-family: inherit;
+  user-select: all;
+}
+
+// global app
+
+.full-layout {
+  background-color: #ededed;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+}
+
+.full-width {
+  min-width: 100vw;
+  // overflow-x: hidden;
+}
+
+.router-wrapper {
+  min-height: calc(100vh - 68px); /* la altura del navbar */
+}

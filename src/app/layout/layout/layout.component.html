@@ -1,1 +1,6 @@
-<p>layout works!</p>
+<div class="full-layout">
+    <app-search-bar (searchEmitter)="sendSearch($event)"></app-search-bar>
+    <div class="router-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -6,10 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './router/app-routing.module';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { SearchBarComponent } from './layout/search-bar/search-bar.component';
+import { SideBarComponent } from './layout/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent,
+    SearchBarComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
