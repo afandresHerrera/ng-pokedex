@@ -9,4 +9,3 @@ export interface PokemonListResponse {
     previous?: any;
     results: PokemonItem[];
 }
-

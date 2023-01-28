@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonItem } from 'src/app/shared/models/pokemon-models';
+import { PokemonItem } from 'src/app/shared/models/pokemon-list.model';
 import { PokeApiService } from 'src/app/services/poke-api.service';
 
 @Component({
@@ -9,6 +9,10 @@ import { PokeApiService } from 'src/app/services/poke-api.service';
 })
 export class HomeComponent implements OnInit {
   pokeList: PokemonItem[] = [];
+  testItem = {
+    name: "bulbasaur",
+    url: "https://pokeapi.co/api/v2/pokemon/1/"
+  };
 
   constructor(
     private pokeApiService: PokeApiService
@@ -19,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   getPokemons() {
-    this.pokeApiService.getAllPokemons(10).subscribe(res => {
+    this.pokeApiService.getAllPokemons(1).subscribe(res => {
       console.log(res);
       this.pokeList = res.results;
       console.log(this.pokeList.length);

@@ -11,5 +11,4 @@ export class PokeDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

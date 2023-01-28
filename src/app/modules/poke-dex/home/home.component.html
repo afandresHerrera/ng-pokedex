@@ -2,21 +2,9 @@
     <div class="container mt-4">
         <div class="row item-sized">
             <div *cdkVirtualFor="let pokeItem of pokeList; let i = index" [id]="'item-' + i">
-                <div class="card text-left">
-                    <img class="card-img-top" src="" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">titulo}</h4>
-                        <p class="card-text">
-                            {{ pokeItem | json }}
-                        </p>
-                    </div>
-                </div>
+                <poke-item [pokeItem]="pokeItem"></poke-item>
             </div>
         </div>
     </div>
-
-<!-- <cdk-virtual-scroll-viewport itemSize="50" minBufferPx="200" maxBufferPx="400" class="example-viewport">
-   <div *cdkVirtualFor="let pokeItem of pokeList; let i = index" class="example-item" [id]="i">{{ pokeItem | json }}</div>
-</cdk-virtual-scroll-viewport>  -->
 
 </cdk-virtual-scroll-viewport>

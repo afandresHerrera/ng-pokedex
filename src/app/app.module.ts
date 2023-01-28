@@ -9,6 +9,7 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { SearchBarComponent } from './layout/search-bar/search-bar.component';
 import { SideBarComponent } from './layout/side-bar/side-bar.component';
+import { PokeItemComponent } from './shared/components/poke-item/poke-item.component';
 
 @NgModule({
   declarations: [
