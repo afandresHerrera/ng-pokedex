@@ -6,14 +6,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent {
+  search: string = '';
   @Output() searchEmitter = new EventEmitter<string>();
 
   emitSearch(value: string): void {
+    console.log(value);
     if (value && value !== '') {
       this.searchEmitter.emit(value);
-    } else {
-      // void
+    } else if (value === '') {
+      this.searchEmitter.emit(value);
     }
   }
-
 }
+

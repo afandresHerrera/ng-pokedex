@@ -31,14 +31,13 @@ export class PokeItemComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.pokeItem);
+    // console.log(this.pokeItem);
   }
 
   getPokeInfo(pokemonItem: PokemonItem) {
     const id = this.pokeApiService.getPokemonId(pokemonItem);
 
     this.pokeApiService.getPokemonInfo(id).subscribe(res => {
-      console.log(res);
       this.pokemonInfo = res;
       this.makeStats(this.pokemonInfo);
     })
@@ -52,9 +51,9 @@ export class PokeItemComponent implements OnInit, OnChanges {
     this.pokeSpeed = stats.find(x => x.stat.name === 'speed');
     this.pokeDefense = stats.find(x => x.stat.name === 'defense');
 
-    console.log(this.pokeHp);
-    console.log(this.pokeAttack);
-    console.log(this.pokeSpeed );
-    console.log(this.pokeDefense);
+    // console.log(this.pokeHp);
+    // console.log(this.pokeAttack);
+    // console.log(this.pokeSpeed );
+    // console.log(this.pokeDefense);
   }
 }

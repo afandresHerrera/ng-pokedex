@@ -9,7 +9,7 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { SearchBarComponent } from './layout/search-bar/search-bar.component';
 import { SideBarComponent } from './layout/side-bar/side-bar.component';
-import { PokeItemComponent } from './shared/components/poke-item/poke-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { PokeItemComponent } from './shared/components/poke-item/poke-item.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot()
   ],

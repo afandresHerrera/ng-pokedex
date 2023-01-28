@@ -6,12 +6,16 @@
                     <img src="assets/images/pk-logo.svg" alt="pokemon logo">
                 </div>
             </div>
+
             <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
                 <div class="search-box ms-auto">
                     <img class="search-icon" src="assets/images/magnifier.svg" alt="search-button"
-                        (click)="emitSearch(search.value)">
-                    <input class="search-form form-control me-2" type="search" placeholder="Search"
-                        (keyup.enter)="emitSearch(search.value)" #search aria-label="Search">
+                        (click)="emitSearch(search)">
+                    <input class="search-form form-control me-2" type="search" placeholder="Search" 
+                    [(ngModel)]="search" (ngModelChange)="emitSearch($event)" aria-label="Search">
+                    <button class="clear-input" *ngIf="search !== ''" (click)="search = '';emitSearch('')">
+                        x
+                    </button>
                 </div>
             </div>
         </div>

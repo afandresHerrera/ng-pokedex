@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PokeApiService } from 'src/app/services/poke-api.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,17 +9,19 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private pokeApiService: PokeApiService
+    ) { }
 
   ngOnInit(): void {
   }
 
   /**
- * Este metodo se encarga de formatear la busqueda y pasarsela por url 
- *  a el componente item list
+ * Este metodo se encarga de pasar la busqueda al servicio
  * @param search Este parametro es el string del input
  */
   sendSearch(search: string) {
-    console.log(search);
+    this.pokeApiService.setSearch(search);
   }
 }

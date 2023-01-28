@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/internal/Subject';
 import { environment } from 'src/environments/environment';
 import { PokemonItem, PokemonListResponse } from '../shared/models/pokemon-list.model';
 import { Pokemon } from '../shared/models/pokemon.model';
@@ -8,9 +9,19 @@ import { Pokemon } from '../shared/models/pokemon.model';
   providedIn: 'root'
 })
 export class PokeApiService {
+  private _searchString = new Subject<string>();
+
   constructor(
     private http: HttpClient
   ) { }
+
+  public get searchString() {
+    return this._searchString;
+  }
+
+  setSearch(searchText: string) {
+    this._searchString.next(searchText);
+  }
 
   getAllPokemons(limit = 1500) {
     return this.http.get<PokemonListResponse>(`${environment.apiUrl}pokemon/?limit=${limit}`);

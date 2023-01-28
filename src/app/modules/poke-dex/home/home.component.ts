@@ -8,7 +8,8 @@ import { PokeApiService } from 'src/app/services/poke-api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  pokeList: PokemonItem[] = [];
+  pokemonList: PokemonItem[] = [];
+  pokeViewList: PokemonItem[] = [];
   testItem = {
     name: "bulbasaur",
     url: "https://pokeapi.co/api/v2/pokemon/1/"
@@ -20,14 +21,22 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemons();
+    console.log("entre al cooso");
+    this.pokeApiService.searchString.subscribe(res => {
+      this.filter(res);
+    })
   }
 
   getPokemons() {
     this.pokeApiService.getAllPokemons().subscribe(res => {
-      console.log(res);
-      this.pokeList = res.results;
-      console.log(this.pokeList.length);
+      this.pokemonList = res.results;
+      this.pokeViewList = this.pokemonList;
     });
+  }
+
+  filter(name: string) {
+    console.log(name);
+    this.pokeViewList = this.pokemonList.filter(x => x.name.startsWith(name));
   }
 
 }

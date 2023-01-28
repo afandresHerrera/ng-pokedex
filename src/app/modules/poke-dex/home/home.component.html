@@ -1,7 +1,7 @@
 <cdk-virtual-scroll-viewport itemSize="150" minBufferPx="300" maxBufferPx="500" class="router-wrapper">
     <div class="container mt-4">
         <div class="row item-sized">
-            <div *cdkVirtualFor="let pokeItem of pokeList; let i = index" [id]="'item-' + i">
+            <div *cdkVirtualFor="let pokeItem of pokeViewList; let i = index" [id]="'item-' + i">
                 <poke-item [pokeItem]="pokeItem"></poke-item>
             </div>
         </div>
