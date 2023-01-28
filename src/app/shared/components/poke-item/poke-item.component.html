@@ -1,9 +1,7 @@
 <div class="card text-left" *ngIf="pokeItem">
     <div class="row" *ngIf="pokemonInfo">
         <div class="col-5">
-            <img class="card-img-left"
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                alt="Official Artwork">
+            <img class="card-img" [src]="pokemonInfo.sprites.front_default">
         </div>
         <div class="col-7">
             <div class="card-body">
@@ -11,32 +9,36 @@
                     {{ pokemonInfo.name }}
                 </h5>
                 <h6 class="abilities">
-                    <span *ngFor="let item of pokemonInfo.types"> 
+                    <span *ngFor="let item of pokemonInfo.types">
                         {{ item.type.name }}
                     </span>
                 </h6>
                 <div class="card-info">
                     <div class="info-title">
-                        <span class="info-id">{{ '#' + pokemonInfo.id }}</span>
-                        <span class="info-max-hp">MAX HP </span>
-                        <span class="info-max-hp-value"> </span>
-                        <span class="info-max-cp">MAX CP</span>
-                        <span class="info-max-cp-value">#1</span>
+                        <span class="info-id">{{ '#' + pokemonInfo.id }} </span>
+                        <span class="info-max-hp">HP </span>
+                        <span class="info-max-hp-value">{{ pokeHp.base_stat }}</span>
+                        <span class="info-max-cp">DEFENSE</span>
+                        <span class="info-max-cp-value">{{ pokeDefense.base_stat }}</span>
                     </div>
                     <div class="info-desc">
                         <table>
                             <tbody>
                                 <tr>
                                     <td align="left" valign="top" class="title-desc">Height:</td>
-                                    <td valign="top" class="detail-desc"><strong>~ 0.7 m</strong></td>
-                                    <td valign="top" class="title-desc">Generation:</td>
-                                    <td valign="top" class="detail-desc"><span class="pokemon-type">I</span></td>
+                                    <td valign="top" class="detail-desc"><strong>~ {{ pokemonInfo.height / 100
+                                            }}m</strong></td>
+                                    <td valign="top" class="title-desc">Attack:</td>
+                                    <td valign="top" class="detail-desc"><span class="pokemon-type">{{
+                                            pokeAttack.base_stat }}</span></td>
                                 </tr>
                                 <tr>
                                     <td align="left" valign="top" class="title-desc">Weight:</td>
-                                    <td valign="top" class="detail-desc"><strong>~ 6.9 kg</strong></td>
+                                    <td valign="top" class="detail-desc"><strong>~ {{ pokemonInfo.weight / 100
+                                            }}kg</strong></td>
                                     <td valign="top" class="title-desc">Candy:</td>
-                                    <td valign="top" class="detail-desc"><span class="pokemon-type">Bulbasaur</span></td>
+                                    <td valign="top" class="detail-desc"><span class="pokemon-type">{{
+                                            pokemonInfo.species.name }}</span></td>
                                 </tr>
                             </tbody>
                         </table>

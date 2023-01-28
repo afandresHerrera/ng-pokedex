@@ -13,7 +13,12 @@ import { Pokemon } from '../../models/pokemon.model';
 })
 export class PokeItemComponent implements OnInit, OnChanges {
   @Input() pokeItem!: PokemonItem;
-  pokemonInfo?: Pokemon;
+  pokemonInfo!: Pokemon;
+  pokeHp: any;
+  pokeAttack: any;
+  pokeSpeed: any;
+  pokeDefense: any;
+
 
   constructor(
     private pokeApiService: PokeApiService
@@ -35,6 +40,21 @@ export class PokeItemComponent implements OnInit, OnChanges {
     this.pokeApiService.getPokemonInfo(id).subscribe(res => {
       console.log(res);
       this.pokemonInfo = res;
+      this.makeStats(this.pokemonInfo);
     })
+  }
+
+  makeStats(poke: Pokemon) {
+    const stats = poke.stats;
+
+    this.pokeHp = stats.find(x => x.stat.name === 'hp');
+    this.pokeAttack = stats.find(x => x.stat.name === 'attack');
+    this.pokeSpeed = stats.find(x => x.stat.name === 'speed');
+    this.pokeDefense = stats.find(x => x.stat.name === 'defense');
+
+    console.log(this.pokeHp);
+    console.log(this.pokeAttack);
+    console.log(this.pokeSpeed );
+    console.log(this.pokeDefense);
   }
 }

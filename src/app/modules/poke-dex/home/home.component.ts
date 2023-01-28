@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   getPokemons() {
-    this.pokeApiService.getAllPokemons(1).subscribe(res => {
+    this.pokeApiService.getAllPokemons().subscribe(res => {
       console.log(res);
       this.pokeList = res.results;
       console.log(this.pokeList.length);
