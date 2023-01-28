@@ -10,6 +10,7 @@ import { Pokemon } from '../shared/models/pokemon.model';
 })
 export class PokeApiService {
   private _searchString = new Subject<string>();
+  public currentPokemonDetail?: Pokemon;
 
   constructor(
     private http: HttpClient
@@ -31,6 +32,10 @@ export class PokeApiService {
     return this.http.get<Pokemon>(`${environment.apiUrl}pokemon/${id}`);
   }
 
+  getPokemonForms(id: string) {
+    return this.http.get<Pokemon>(`${environment.apiUrl}evolution-chain/${id}`);
+  }
+
   getPokemonId(pokemonItem: PokemonItem) {
     const urlArray = pokemonItem.url.split('/');
     const tempId = parseInt(urlArray[urlArray.length - 2]);
@@ -43,5 +48,5 @@ export class PokeApiService {
     }
 
     return pokemonId;
-  }
+  }  
 }

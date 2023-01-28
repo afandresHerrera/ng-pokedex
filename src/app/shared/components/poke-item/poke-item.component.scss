@@ -1,4 +1,13 @@
-.card-img-left {
-    height: auto;
-    max-width: 100px;
+.card {
+  cursor: pointer;
+  transition: all ease-in-out 200ms;
+
+  &:hover {
+    transform: translateX(-15px);
+  }
+}
+
+.card-img {
+  height: auto;
+  max-width: 320px;
 }

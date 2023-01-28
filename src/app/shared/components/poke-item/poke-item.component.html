@@ -1,4 +1,4 @@
-<div class="card text-left" *ngIf="pokeItem">
+<div class="card text-left" *ngIf="pokeItem" (click)="redirect(pokemonInfo)">
     <div class="row" *ngIf="pokemonInfo">
         <div class="col-5">
             <img class="card-img" [src]="pokemonInfo.sprites.front_default">

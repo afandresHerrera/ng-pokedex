@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PokeApiService } from 'src/app/services/poke-api.service';
 import { PokemonItem } from '../../models/pokemon-list.model';
 import { Pokemon } from '../../models/pokemon.model';
@@ -21,7 +22,8 @@ export class PokeItemComponent implements OnInit, OnChanges {
 
 
   constructor(
-    private pokeApiService: PokeApiService
+    private pokeApiService: PokeApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +47,7 @@ export class PokeItemComponent implements OnInit, OnChanges {
 
   makeStats(poke: Pokemon) {
     const stats = poke.stats;
-
+    
     this.pokeHp = stats.find(x => x.stat.name === 'hp');
     this.pokeAttack = stats.find(x => x.stat.name === 'attack');
     this.pokeSpeed = stats.find(x => x.stat.name === 'speed');
@@ -55,5 +57,10 @@ export class PokeItemComponent implements OnInit, OnChanges {
     // console.log(this.pokeAttack);
     // console.log(this.pokeSpeed );
     // console.log(this.pokeDefense);
+  }
+
+  redirect(pokemon? : Pokemon) {
+    this.pokeApiService.currentPokemonDetail = this.pokemonInfo;
+    this.router.navigateByUrl('poke-detail/' + pokemon?.id)
   }
 }
